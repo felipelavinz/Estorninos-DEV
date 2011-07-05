@@ -1,0 +1,37 @@
+#wrap{
+	width: 60em;
+	margin: 2em auto;
+}
+.toggle{
+	padding-top: 1em;
+	border-top: 1px dashed #ccc;
+	cursor: pointer;
+}
+.toggle:before{
+	content: '[+] ';
+}
+.collapsible{
+	display: none;
+}
+pre{
+	display: none;
+	width: 90%;
+	padding: 1em 5%;
+	background: #000;
+	color: #fff;
+	font-size:123.1%;
+	overflow: auto;
+}
+.sandbox{
+	width: 100%;
+	height: 200px;
+	margin: 1.5em 0;
+	border:1px solid #dcdcdc;
+	position: relative;
+	overflow: hidden;
+	background: #eee;
+}
+.sandbox .elemento-creado{
+	width: 100px;
+	height: 100px;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplos Javascript</title>
+	<link rel="stylesheet" href="../lib/css/yui.css" />
+	<link rel="stylesheet" href="../lib/css/style.css" />
+	<link rel="stylesheet" href="../lib/js/syntaxhighlighter/styles/shCore.css" />
+	<link rel="stylesheet" href="../lib/js/syntaxhighlighter/styles/shThemeDefault.css" />
+	<script type="text/javascript" src="../lib/js/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../lib/js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../lib/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/js/scripts.js"></script>
+</head>
+<body>
+	<div id="wrap" class="yui3-cssbase">
+		<div id="header">
+			<h1>Javascript</h1>
+		</div>
+		<div id="main">
+			<h2>DOM</h2>
+			<p class="toggle">Obtener elementos DOM</p>
+			<div class="collapsible">
+				<p id="lorem-ipsum" class="brown-fox">Este párrafo tiene id "lorem-ipsum" y clase "brown-fox"</p>
+				<ul id="desordenada">
+					<li>Primer "li"</li>
+					<li>Segundo "li"</li>
+					<li>Tercer "li"</li>
+				</ul>
+				<ol id="ordenada">
+					<li>Otro "li"</li>
+					<li>Otro "li" más</li>
+				</ol>
+<pre class="brush: js">
+	var lipsum = document.getElementById('lorem-ipsum'),
+		list_elements = document.getElementsByTagName('li');
+		ordenada = document.getElementById('ordenada');
+		order_elements = ordenada.getElementsByTagName('li');
+</pre>
+			</div>
+			<p class="toggle">Modificar propiedades de un elemento</p>
+			<div class="collapsible">
+				<p id="colorear">Dejar este párrafo (id="colorear") con texto rojo</p>
+<pre class="brush: js">
+function colorear( colorhex ){
+	var rojo = document.getElementById('colorear');
+	rojo.style.color = colorhex;
+}
+</pre>
+			</div>
+<script type="text/javascript">
+	function colorear( colorhex ){
+		var rojo = document.getElementById('colorear');
+		rojo.style.color = colorhex;
+	}
+</script>
+		<p class="toggle">Crear elementos</p>
+		<div class="collapsible">
+<pre class="brush: js">
+function crear_elementos( cantidad ) {
+	var sandbox = document.getElementById('child_container');
+	for ( i = 0; i < cantidad; i++ ) {
+		var new_element = document.createElement('div');
+		new_element.id = 'elemento-'+ i;
+		new_element.className = 'elemento-creado';
+		new_element.style.position = 'absolute';
+		new_element.style.top = Math.random() * 100 +'%';
+		new_element.style.left = Math.random() * 100 +'%';
+		new_element.style.backgroundColor = rand_color();
+		sandbox.appendChild( new_element );
+	}
+}
+
+function rand_color(){
+	var rr = parseInt( Math.random() * 255 ),
+		gg = parseInt( Math.random() * 255 ),
+		bb = parseInt( Math.random() * 255 );
+	return 'rgb('+ rr +', '+ gg +', '+ bb +')';
+}
+</pre>
+			<div id="child_container" class="sandbox"></div>
+		</div>
+<script type="text/javascript">
+	function crear_elementos( cantidad ) {
+		var sandbox = document.getElementById('child_container');
+		for ( i = 0; i < cantidad; i++ ) {
+			var new_element = document.createElement('div');
+			new_element.id = 'elemento-'+ i;
+			new_element.className = 'elemento-creado';
+			new_element.style.position = 'absolute';
+			new_element.style.top = Math.random() * 100 +'%';
+			new_element.style.left = Math.random() * 100 +'%';
+			new_element.style.backgroundColor = rand_color();
+			sandbox.appendChild( new_element );
+		}
+	}
+
+	function rand_color(){
+		var rr = parseInt( Math.random() * 255 ),
+			gg = parseInt( Math.random() * 255 ),
+			bb = parseInt( Math.random() * 255 );
+		return 'rgb('+ rr +', '+ gg +', '+ bb +')';
+	}
+</script>
+		<p class="toggle">Asociar funciones a eventos</p>
+		<div class="collapsible">
+			<p><a href="http://www.google.com" id="pica">¡Cliquéame!</a></p>
+<pre class="brush: js">
+window.onload = function(){
+	var pica = document.getElementById('pica');
+	pica.onclick = function(){
+		alert('¡Auch!');
+		return false;
+	}
+}
+</pre>
+<script type="text/javascript">
+	window.onload = function(){
+		var pica = document.getElementById('pica');
+		pica.onclick = function(){
+			alert('¡Auch!');
+			return false;
+		}
+	}
+</script>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
