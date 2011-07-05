@@ -1,0 +1,15 @@
+h1. Proyecto Estorninos (Archivos de desarrollo)
+
+Este repositorio contiene ejercicios de código y documentación para la 
+creación y puesta en marcha del proyecto Estorninos del Taller de 
+Construcción de Diseño Gráfico 4 (año 2011) de Diseño PUCV.
+
+Estorninos es una plataforma de gobierno estudiantil que implementa 6
+módulos:
+
+* Home
+* Debates
+* Feria
+* Agenda
+* Noticias
+* Perfil
