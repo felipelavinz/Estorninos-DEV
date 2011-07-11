@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplos jQuery</title>
+	<link rel="stylesheet" href="../lib/css/yui.css" />
+	<link rel="stylesheet" href="../lib/css/style.css" />
+	<link rel="stylesheet" href="../lib/js/syntaxhighlighter/styles/shCore.css" />
+	<link rel="stylesheet" href="../lib/js/syntaxhighlighter/styles/shThemeDefault.css" />
+	<script type="text/javascript" src="../lib/js/syntaxhighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../lib/js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../lib/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/js/scripts.js"></script>
+</head>
+<body>
+	<div id="wrap" class="yui3-cssbase">
+		<div id="header">
+			<h1>jQuery</h1>
+		</div>
+		<div id="main">
+			<h2>Manipulación de elementos</h2>
+			<p class="toggle">Modificar atributos o propiedades de elementos</p>
+			<div class="collapsible">
+				<p id="manipulation-1">Al clickear este párrafo, cambiará el texto</p>
+				<p id="manipulation-2">Insertar un nuevo párrafo después de éste</p>
+				<p id="manipulation-3">Cambiar el color del texto y el fondo</p>
+<pre class="brush: js">
+jQuery('#manipulation-1').click(function(){
+	$(this).text('Este es un nuevo texto');
+});
+
+jQuery('#manipulation-2').click(function(){
+	$(this).after('&lt;p&gt;&lt;strong&gt;Párrafo nuevo&lt;/strong&gt;&lt;/p&gt;');
+});
+
+jQuery('#manipulation-3').click(function(){
+	$(this).css({
+		'background': '#ffc',
+		'color': '#f00'
+	});
+});
+</pre>
+			</div>
+			<script type="text/javascript">
+				jQuery('#manipulation-1').click(function(){
+					$(this).text('Este es un nuevo texto');
+				});
+				jQuery('#manipulation-2').click(function(){
+					$(this).after('<p><strong>Párrafo nuevo</strong></p>');
+				});
+				jQuery('#manipulation-3').click(function(){
+					$(this).css({
+						'background': '#ffc',
+						'color': '#f00'
+					});
+				});
+			</script>
+			<p class="toggle">Recorrer y encontrar elementos en el DOM</p>
+			<div class="collapsible">
+				<ol id="traversing-wrap">
+					<li id="t-ol-uno" class="first odd">Uno</li>
+					<li class="even">Dos</li>
+					<li class="odd">Tres</li>
+					<li class="even">Cuatro</li>
+					<li class="last odd">Cinco</li>
+				</ol>
+				<p><a href="#traversing-wrap">Colapsar/expandir</a></p>
+<pre class="brush: js">
+</pre>
+			</div>
+			<script type="text/javascript">
+				jQuery('#t-ol-uno').click(function(){
+					$(this).next().css('font-weight', 'bold');
+				});
+				jQuery('#traversing-wrap').find('li').bind('click', function(){
+					if ( $(this).hasClass('even') ) {
+						alert('Par');
+					} else {
+						alert('Impar');
+					}
+				});
+				jQuery('#t-ol-uno').dblclick(function(){
+					$(this).closest('ol').css('background', '#ff0');
+				});
+				jQuery('#traversing-wrap + p > a').click(function(){
+					$(this).parent().prev().slideToggle('normal', function(){
+						alert('fin de la animación');
+					});
+					return false;
+				}).dblclick(function(){
+					$(this).parent().prev().fadeToggle('normal', function(){
+						// incrementar un contador
+					});
+				});
+			</script>
+			<p class="toggle">Retornar valores distintos de acuerdo al input del usuario</p>
+			<div class="collapsible">
+<pre class="brush: js">
+function retornar( valor ) {
+	switch(valor){
+		case 0:
+			return 'no hay comentarios';
+			break;
+		case 1:
+			return 'un comentario';
+			break;
+		default:
+			return valor.toString() +' comentarios';
+			break;
+	}
+}
+
+function sumar( sumando1, sumando2 ){
+	return sumando1 + sumando2;
+}
+</pre>
+			</div>
+<script type="text/javascript">
+	function retornar( valor ){
+		switch(valor){
+			case 0:
+				return 'no hay comentarios';
+				break;
+			case 1:
+				return 'un comentario';
+				break;
+			default:
+				return valor.toString() +' comentarios';
+				break;
+		}
+	}
+	function sumar( sumando1, sumando2 ){
+		return sumando1 + sumando2;
+	}
+</script>
+			<p class="toggle">Validar inputs del usuario</p>
+			<div class="collapsible">
+<pre class="brush: js">
+function dividir( dividendo, divisor ) {
+	if ( typeof(dividendo) !== 'number' || typeof(divisor) !== 'number' ) {
+		console.log('Ambos parámetros deben ser números');
+		return null;
+	}
+	return dividendo / divisor;
+}
+
+function sumar2( sumando1, sumando2 ) {
+	/**
+	 * También puede ser:
+	 *  return parseInt(sumando1) + parseInt(sumando2);
+	 *  */
+	return ( sumando1 * 1 ) + ( sumando2 * 1 );
+}
+</pre>
+			</div>
+<script type="text/javascript">
+	function dividir( dividendo, divisor ) {
+		if ( typeof(dividendo) !== 'number' || typeof(divisor) !== 'number' ) {
+			console.log('Ambos parámetros deben ser números');
+			return null;
+		}
+		return dividendo / divisor;
+	}
+	function sumar2( sumando1, sumando2 ) {
+		/**
+		 * También puede ser:
+		 *  return parseInt(sumando1) + parseInt(sumando2);
+		 *  */
+		return ( sumando1 * 1 ) + ( sumando2 * 1 );
+	}
+</script>
+		</div>
+	</div>
+</body>
+</html>
