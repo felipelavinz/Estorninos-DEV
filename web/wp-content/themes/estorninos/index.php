@@ -1,16 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<title><?php wp_title(); ?></title>
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/yui.css" />
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-1.6.4.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
-	<?php wp_head(); ?>
-</head>
-<body <?php body_class('yui3-cssbase'); ?>>
-	<div id="posts" class="hfeed posts-entries">
+<?php get_header(); ?>
+<div class="yui3-g">
+	<div id="posts" class="hfeed posts-entries yui3-u-2-3">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<?php // echo '<pre>'. print_r($post, true) .'</pre>'; ?>
 			<div <?php post_class('hentry') ?>>
@@ -25,6 +15,8 @@
 			</div>
 		<?php endwhile; endif; ?>
 	</div>
-<?php wp_footer(); ?>
-</body>
-</html>
+	<div class="yui3-u-1-3">
+		<?php listar_proyectos(); ?>
+	</div>
+</div>
+<?php get_footer(); ?>
